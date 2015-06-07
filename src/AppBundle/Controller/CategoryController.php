@@ -15,19 +15,9 @@ class CategoryController extends Controller
      */
     public function indexAction()
     {
-        $category1 = new \stdClass();
-        $category1->imgSrc      = 'http://www.teraproc.com/wp-content/uploads/2015/05/banana-5.jpg';
-        $category1->title       = 'Bananas';
-        $category1->description = '';
-        $category1->slug = 'bananas';
-        
-        $category2 = new \stdClass();
-        $category2->imgSrc      = 'http://flavoritetomatoes.com.au/wp-content/uploads/new_truss_tomatoes.jpg';
-        $category2->title       = 'Tomatoes';
-        $category2->description = '';
-        $category2->slug = 'tomatoes';
-        
-        $categories = array($category1, $category2);
+        $categories = $this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:Category')
+            ->findAll();
         
         return array(
             'categories' => $categories
