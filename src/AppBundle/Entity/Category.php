@@ -41,6 +41,11 @@ class Category
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Plant", mappedBy="categories")
+     */
+    protected $plants;
 
 
     /**
@@ -120,5 +125,46 @@ class Category
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->plants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add plants
+     *
+     * @param \AppBundle\Entity\Plant $plants
+     * @return Category
+     */
+    public function addPlant(\AppBundle\Entity\Plant $plants)
+    {
+        $this->plants[] = $plants;
+
+        return $this;
+    }
+
+    /**
+     * Remove plants
+     *
+     * @param \AppBundle\Entity\Plant $plants
+     */
+    public function removePlant(\AppBundle\Entity\Plant $plants)
+    {
+        $this->plants->removeElement($plants);
+    }
+
+    /**
+     * Get plants
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlants()
+    {
+        return $this->plants;
     }
 }
