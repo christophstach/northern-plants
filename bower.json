@@ -1,0 +1,19 @@
+{
+  "name": "northernplants",
+  "version": "1.0.0",
+  "authors": [
+    "Christoph Stach"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "startbootstrap-business-casual": "https://github.com/IronSummitMedia/startbootstrap-business-casual.git#v1.0.3"
+  }
+}
