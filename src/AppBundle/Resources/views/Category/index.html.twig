@@ -15,7 +15,15 @@
         
         {% for category in categories %}
             <div class="col-sm-4 text-center">
-                <a href="/category/{{ category.slug }}"><img class="img-responsive" src="http://placehold.it/350x250" alt="{{ category.title }}"></a>
+                {% if category.image %}
+                    <a href="/category/{{ category.slug }}">
+                        <img class="img-responsive" src="/assets/img/category/{{ category.image }}" alt="{{ category.title }}">
+                    </a>
+                {% else %}
+                    <a href="/category/{{ category.slug }}">
+                        <img class="img-responsive" src="http://placehold.it/350x250" alt="{{ category.title }}">
+                    </a>
+                {% endif %}
                 <h3>{{ category.title }}</h3>
             </div>
         {% endfor %}
