@@ -43,6 +43,13 @@ class Plant
     private $slug;
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    protected $image;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="plants")
      */
     protected $categories;
@@ -166,5 +173,28 @@ class Plant
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Plant
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
