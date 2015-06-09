@@ -95,7 +95,8 @@ class ContentController extends Controller
             return $this->redirectToRoute('contact', array('success' => $this->get('mailer')->send($message)));
         } else {
             return array(
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'success' => $request->get('success')   
             );    
         }
     }
