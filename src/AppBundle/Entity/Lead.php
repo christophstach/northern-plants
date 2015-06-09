@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * ContactRequest
+ * Lead
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\ContactRequestRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\LeadRepository")
  */
-class ContactRequest
+class Lead
 {
     /**
      * @var integer
@@ -24,6 +25,7 @@ class ContactRequest
     /**
      * @var string
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,6 +33,10 @@ class ContactRequest
     /**
      * @var string
      *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = false
+     * )
      * @ORM\Column(name="emailAddress", type="string", length=255)
      */
     private $emailAddress;
@@ -38,6 +44,7 @@ class ContactRequest
     /**
      * @var string
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="phoneNumber", type="string", length=255)
      */
     private $phoneNumber;
@@ -45,6 +52,7 @@ class ContactRequest
     /**
      * @var string
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="message", type="text")
      */
     private $message;
@@ -71,7 +79,7 @@ class ContactRequest
      * Set name
      *
      * @param string $name
-     * @return ContactRequest
+     * @return Lead
      */
     public function setName($name)
     {
@@ -94,7 +102,7 @@ class ContactRequest
      * Set emailAddress
      *
      * @param string $emailAddress
-     * @return ContactRequest
+     * @return Lead
      */
     public function setEmailAddress($emailAddress)
     {
@@ -117,7 +125,7 @@ class ContactRequest
      * Set phoneNumber
      *
      * @param string $phoneNumber
-     * @return ContactRequest
+     * @return Lead
      */
     public function setPhoneNumber($phoneNumber)
     {
@@ -140,7 +148,7 @@ class ContactRequest
      * Set message
      *
      * @param string $message
-     * @return ContactRequest
+     * @return Lead
      */
     public function setMessage($message)
     {
@@ -163,7 +171,7 @@ class ContactRequest
      * Set timestamp
      *
      * @param \DateTime $timestamp
-     * @return ContactRequest
+     * @return Lead
      */
     public function setTimestamp($timestamp)
     {
