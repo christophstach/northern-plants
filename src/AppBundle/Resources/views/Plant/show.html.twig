@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-6">
                 {% if plant.image %}
-                    <img class="img-responsive img-border-left" src="/assets/img/plant/{{ plant.image }}" alt="{{ plant.name }}">
+                    <img class="img-responsive img-border-left" src="{{ ('/assets/img/plant/' ~ plant.image) | imagine_filter('plant') }}" alt="{{ plant.name }}">
                 {% else %}
                     <img class="img-responsive img-border-left" src="http://placehold.it/800x600" alt="{{ plant.name }}">
                 {% endif %}
