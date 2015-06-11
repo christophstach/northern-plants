@@ -80,3 +80,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+liip_imagine:
+    filter_sets:
+        category:
+            filters:
+                thumbnail: { size: [350, 250], mode: outbound } 
+        plant:
+            filters:
+                thumbnail: { size: [640, 480], mode: outbound } 
+        slider:
+            filters:
+                thumbnail: { size: [1200, 300], mode: outbound } 
+                

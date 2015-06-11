@@ -17,7 +17,7 @@
             <div class="col-sm-4 text-center">
                 {% if category.image %}
                     <a href="/category/{{ category.slug }}">
-                        <img class="img-responsive" src="/assets/img/category/{{ category.image }}" alt="{{ category.title }}">
+                        <img class="img-responsive" src="{{ ('/assets/img/category/' ~ category.image) | imagine_filter('category') }}" alt="{{ category.title }}">
                     </a>
                 {% else %}
                     <a href="/category/{{ category.slug }}">
