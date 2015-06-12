@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Content
+ * Page
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\ContentRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\PageRepository")
  */
-class Content
+class Page
 {
     /**
      * @var integer
@@ -31,9 +31,9 @@ class Content
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="content", type="text")
      */
-    private $text;
+    private $content;
 
     /**
      * @var string
@@ -57,7 +57,7 @@ class Content
      * Set title
      *
      * @param string $title
-     * @return Content
+     * @return Page
      */
     public function setTitle($title)
     {
@@ -77,33 +77,33 @@ class Content
     }
 
     /**
-     * Set text
+     * Set content
      *
      * @param string $text
-     * @return Content
+     * @return Page
      */
-    public function setText($text)
+    public function setContent($content)
     {
-        $this->text = $text;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get text
+     * Get content
      *
      * @return string 
      */
-    public function getText()
+    public function getContent()
     {
-        return $this->text;
+        return $this->content;
     }
 
     /**
      * Set slug
      *
      * @param string $slug
-     * @return Content
+     * @return Page
      */
     public function setSlug($slug)
     {

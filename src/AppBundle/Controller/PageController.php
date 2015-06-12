@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Form;
 use AppBundle\Entity;
 
-class ContentController extends Controller
+class PageController extends Controller
 {
     /**
      * @Route("/")
@@ -19,18 +19,18 @@ class ContentController extends Controller
      */
     public function indexAction()
     {
-        $content = $this->getDoctrine()->getManager()
-            ->getRepository('AppBundle:Content')
+        $page = $this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:Page')
             ->findOneBySlug('home');
             
-        if (!$content) {
+        if (!$page) {
             throw $this->createNotFoundException(
                 'No page found for "home"'
             );
         }
         
         return array(
-            'content' => $content
+            'page' => $page
         ); 
     }  
     
@@ -39,19 +39,19 @@ class ContentController extends Controller
      * @Template()
      */
     public function pageAction($slug)
-    {      
-        $content = $this->getDoctrine()->getManager()
-            ->getRepository('AppBundle:Content')
+    {     
+        $page = $this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:Page')
             ->findOneBySlug($slug);
             
-        if (!$content) {
+        if (!$page) {
             throw $this->createNotFoundException(
                 'No page found for "' . $slug . '"'
             );
         }
         
         return array(
-            'content' => $content
+            'page' => $page
         );
     }
     
