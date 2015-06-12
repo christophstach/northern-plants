@@ -24,7 +24,7 @@ class Page
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=55)
      */
     private $title;
 
@@ -34,6 +34,21 @@ class Page
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=150)
+     */
+    private $description;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="keywords", type="string", length=175)
+     */
+    private $keywords;
+    
 
     /**
      * @var string
@@ -120,5 +135,51 @@ class Page
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Page
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     * @return Page
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string 
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }
