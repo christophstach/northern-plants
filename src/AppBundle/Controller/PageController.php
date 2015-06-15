@@ -56,7 +56,7 @@ class PageController extends Controller
     }
     
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact")
      * @Template()
      */
     public function contactAction(Request $request)
@@ -92,7 +92,7 @@ class PageController extends Controller
                 )
             ;
             
-            return $this->redirectToRoute('contact', array('success' => $this->get('mailer')->send($message)));
+            return $this->redirectToRoute('app_page_contact', array('success' => $this->get('mailer')->send($message)));
         } else {
             return array(
                 'form' => $form->createView(),

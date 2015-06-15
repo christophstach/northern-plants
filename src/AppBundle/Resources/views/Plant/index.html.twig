@@ -23,7 +23,7 @@
 			        {% for plant in category.plants %}
 						<tr>
 							<td style="width: 100%;">{{ plant.name }}</td>
-							<td><a href="/plant/{{ plant.slug }}" class="btn btn-primary btn-sm">Show</a></td>
+							<td><a href="{{ path('app_plant_show', {'slug': plant.slug}) }}" class="btn btn-primary btn-sm">Show</a></td>
 						</tr>
 			        {% endfor %}
 				</tbody>
