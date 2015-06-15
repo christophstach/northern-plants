@@ -10,3 +10,4 @@
 /vendor/
 /web/bundles/
 /web/media/cache/
+app/config/parameters_prod.yml
