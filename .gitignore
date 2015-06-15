@@ -8,5 +8,5 @@
 /bin/
 /composer.phar
 /vendor/
-/public_html/bundles/
-/public_html/media/cache/
+/web/bundles/
+/web/media/cache/
