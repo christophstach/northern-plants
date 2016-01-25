@@ -1,3 +1,6 @@
 body {
-	background: url('../img/nursery.jpg') no-repeat center center fixed;
+	background-image: url('../img/nursery.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
