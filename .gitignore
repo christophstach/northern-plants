@@ -12,3 +12,4 @@
 /web/media/cache/
 app/config/parameters_prod.yml
 .idea/
+.env
